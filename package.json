@@ -9,6 +9,7 @@
   "author": "Sebastian Kannegiesser",
   "license": "MIT",
   "dependencies": {
+    "cron": "^1.2.1",
     "html": "^1.0.0",
     "lodash": "^4.17.4",
     "phantomjs-prebuilt": "^2.1.14"
