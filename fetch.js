@@ -9,19 +9,19 @@ const wait = args[2];
 
 const fetchPage = function (base, path, visited, unvisited, cb) {
     page.open(base + path, function (status) {
-        const html = HTML.prettyPrint(page.evaluate(function () {
-            return document.getElementsByTagName('html')[0].innerHTML;
-        }));
-
-        visited[path] = html;
-
-        const links = page.evaluate(function () {
-            return [].map.call(document.querySelectorAll('a'), function (link) {
-                return link.getAttribute('href');
-            });
-        });
-
         setTimeout(function () {
+            const html = HTML.prettyPrint(page.evaluate(function () {
+                return document.getElementsByTagName('html')[0].innerHTML;
+            }));
+
+            visited[path] = html;
+
+            const links = page.evaluate(function () {
+                return [].map.call(document.querySelectorAll('a'), function (link) {
+                    return link.getAttribute('href');
+                });
+            });
+
             cb(null, {
                 base: base,
                 path: path,
